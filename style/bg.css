@@ -36,6 +36,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    opacity: 0.7;
     background-color: #000;
 }
 .hexagon {
@@ -48,6 +49,7 @@
     margin: 2px 2px;
     transition: all 0.3s ease-in-out;
     z-index: 2;
+    opacity: 0.8;
 }
 .row {
     display: flex;

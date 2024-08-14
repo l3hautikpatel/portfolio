@@ -1,7 +1,238 @@
+.colorPrimery{
+  color: #d27530;
+}
 
 
-.hero1{
-    height: 100vh;
+.hero1 {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.hero1-left {
+  /* background: #530202; */
+  position: relative;
+  height: 100%;
+  width: 60%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Playwrite DE Grund", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  padding-left: 7%;
+}
+
+.hero1-left .title {
+  font-size: 30px;
+}
+
+.hero1-left .name{
+  font: 700;
+  font-size: 50px;
+}
+
+.hero1-left .ptext{
+  font-size: large;
+  padding-top: 2vh;
+}
+
+.workLine{
+  position: relative;
+  background-color: aquamarine;
+}
+
+
+.hero1-left .h1s {
+  position: relative;
+  height: 5.8vh;
+  width: 110%;
+  overflow: hidden;
+}
+
+.hero1-left .h1s h1 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  line-height: 1;
+  font-size: x-large;
+  margin: 1vh 0;
+  padding-left: 2vw;
+  color: #d27530;
+}
+
+.hero1-left .h1s h1:nth-child(1) {
+  top: 0%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hero1-right {
+  position: relative;
+  height: 100%;
+  width: 40%;
+}
+
+.hero1-right .bhautikImg {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero1-right img.blob {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  /* make sure the blob is behind the facecut image */
+}
+
+.hero1-right img.facecut {
+  position: relative;
+  height: 60%;
+  /* adjust the height to your liking */
+  width: 60%;
+  /* adjust the width to your liking */
+  border-radius: 50%;
+  object-fit: cover;
+  /* make sure the image is scaled to fit the container */
+  z-index: 10;
+  /* bring the facecut image to the front */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  /* add a subtle shadow to the image */
+}
+
+.hero1 .scroll-Text{
+  position: absolute;
+  bottom: 7%;
+  right: 30%;
+  background-color: transparent;
+  padding: 0.4vw;
+  font-family: "Playwrite DE Grund", cursive;
+  border-radius: 15%;
+}
+
+/* Media queries for mobile responsiveness */
+
+/* For screens with a maximum width of 768px (e.g. iPads) *//* ... (rest of the CSS code remains the same) */
+
+/* Media queries for mobile responsiveness */
+
+/* For screens with a maximum width of 768px (e.g. iPads) */
+@media (max-width: 768px) {
+  .hero1 {
+    flex-direction: column;
+    /* switch to a vertical layout */
+  }
+
+  .hero1-left {
     width: 100%;
-    /* background-color: rgba(0, 255, 255, 0.062); */
+    /* take up the full width */
+  }
+
+  .hero1-right {
+    width: 100%;
+    /* take up the full width */
+  }
+
+  .hero1-right .bhautikImg {
+    height: 50vh;
+    /* reduce the height */
+  }
+
+  .hero1-right img.blob {
+    height: 50vh;
+    /* reduce the height */
+  }
+
+  .hero1-right img.facecut {
+    height: 40vh;
+    /* reduce the height */
+    width: 40vh;
+    /* reduce the width */
+  }
+
+  .hero1-left .h1s {
+    height: 10vh;
+    /* reduce the height */
+  }
+
+  .hero1-left .h1s h1 {
+    font-size: large;
+    /* reduce the font size */
+  }
+}
+
+/* For screens with a maximum width of 480px (e.g. mobile phones) */
+@media (max-width: 480px) {
+  .hero1-right .bhautikImg {
+    height: 30vh;
+    /* reduce the height further */
+  }
+
+  .hero1-right img.blob {
+    top: -20%;
+    height: 45vh;
+    display: block;
+    /* reduce the height further */
+  }
+
+  .hero1-right img.facecut {
+    height: 25vh;
+    border-radius: 50%;
+    /* box-shadow: 5px 5px 5px 0px rgba(235, 0, 0, 0.3); */
+    filter: drop-shadow(15px 5px 15px rgba(210, 119, 49, 0.7));
+    width: 25vh;
+    /* reduce the width further */
+  }
+
+  .hero1-left .h1s {
+    height: 5vh;
+    /* reduce the height further */
+  }
+
+  .hero1-left .h1s h1 {
+    font-size: x-large;
+    /* reduce the font size further */
+  }
+
+  .hero1 .scroll-Text {
+    bottom: 15%;
+    right: 5%;
+    font-size: small;
+    z-index: 10;
+    /* adjust the position and font size */
+  }
 }

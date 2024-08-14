@@ -8,11 +8,22 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="stylesheet" href="./style/nav.css" />
-    <!-- <link rel="stylesheet" href="./style/bg.css" /> -->
+    <link rel="stylesheet" href="./style/bg.css" />
     <link rel="stylesheet" href="./style/hreo1.css" />
+    <link rel="stylesheet" href="./style/hero2.css" />
   </head>
   <body>
     <div class="bgMain">
@@ -20,33 +31,72 @@
     </div>
 
     <div class="main">
+      <nav>
+        <div class="logo">
+          <a href="#" class="sign"><img src="./assests/sign.png" alt="" /></a>
+        </div>
+        <ul class="nav-links">
+          <li><a class="active" href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <div class="menu-backdrop"></div>
+      </nav>
 
+      <div class="hero1" id="hero1">
+        <div class="hero1-left">
+          <h1 class="title">
+            Hi There, I am
+            <span class="colorPrimery name"> Bhautik Patel </span>
+          </h1>
+          <p class="ptext">I will do,</p>
+          <div class="h1s">
+            <h1>Web Development</h1>
+            <h1>Front End Development</h1>
+            <h1>Back End Development</h1>
+            <h1>Software Development</h1>
+            <h1>Full Stack Development</h1>
+            <h1>Web Design</h1>
+            <!-- <h1>Problem Solver</h1> -->
+          </div>
+          <p class="ptext">
+            "With a passion for developing innovative solutions to real-world
+            problems, I focus on crafting impactful designs that address complex
+            challenges."
+          </p>
+        </div>
 
-
-        <nav>
-            <div class="logo">
-              <a href="#">Logo</a>
+        <div class="hero1-right">
+          <div class="bhautikImg">
+            <img class="blob" src="./assests/blob.svg" alt="" srcset="" />
+            <img
+              class="facecut"
+              src="./assests/ImgBhautik-removebg-preview.png"
+              alt="loading..."
+            />
+            <div class="scroll-Text">
+              Scroll <i class="ri-arrow-down-line"></i>
             </div>
-            <ul class="nav-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="burger">
-              <div class="line1"></div>
-              <div class="line2"></div>
-              <div class="line3"></div>
-            </div>
-            <div class="menu-backdrop"></div>
-          </nav>
+          </div>
+        </div>
+      </div>
+      <div class="hero2"></div>
+      <div class="hero3"></div>
+      <div class="hero4">
+        https://leetcode-stats-api.herokuapp.com/bhautikp105
 
-
-
-      <div class="hero1"></div>
-      <div class="hero1"></div>
-      <div class="hero1"></div>
-      <div class="hero1"></div>
-      <div class="hero1"id="contact"> conyaagrgerr</div>
+        <br />
+        https://api.github.com/users/l3hautikpatel
+      </div>
+      <div class="hero5" id="contact">conyaagrgerr</div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
@@ -61,5 +111,6 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/nav.js"></script>
     <script src="./scripts/bgscript.js"></script>
+    <script src="./scripts/hero1.js"></script>
   </body>
 </html>

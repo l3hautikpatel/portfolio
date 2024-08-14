@@ -8,6 +8,8 @@ body {
     height: 100%;
     width: 100%;
     background-color: #000;
+    scroll-behavior: smooth;
+    transition: scroll 0.5s ease-in-out;
 }
 
 ::-webkit-scrollbar {

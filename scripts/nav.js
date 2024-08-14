@@ -24,3 +24,33 @@ navLinks.addEventListener('click', (e) => {
     document.body.classList.remove('fixed-position');
   }
 });
+
+
+var navPages = document.querySelectorAll(".nav-links a")
+navPages.forEach((elem) => {
+    elem.addEventListener('click', () => {
+        navPages.forEach((element) => {
+            element.classList.remove("active");
+        })
+        elem.classList.add('active');
+    })
+})
+
+
+
+
+
+gsap.from('.main nav',{
+  duration: 1,
+  y: -100,
+})
+gsap.from('.logo img',{
+  duration: 1,
+  scale: 8,
+  opacity:0,
+})
+gsap.from('.nav-links li',{
+  duration: 1,
+  y: -100,
+  stagger: 0.2,
+})

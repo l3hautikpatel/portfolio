@@ -41,3 +41,18 @@ gsap.to(scrollText, {
   repeat: -1,
   yoyo: true
 });
+
+
+const scrollerIns = document.querySelectorAll('.scroller-in');
+
+scrollerIns.forEach((scrollerIn) => {
+  const text = scrollerIn.textContent;
+  const words = text.split(' ');
+  scrollerIn.innerHTML = '';
+
+  words.forEach((word) => {
+    const h4 = document.createElement('h4');
+    h4.textContent = word + " ";
+    scrollerIn.appendChild(h4);
+  });
+});

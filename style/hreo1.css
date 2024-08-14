@@ -32,6 +32,7 @@
 
 .hero1-left .title {
   font-size: 30px;
+  z-index: 3;
 }
 
 .hero1-left .name{
@@ -42,6 +43,7 @@
 .hero1-left .ptext{
   font-size: large;
   padding-top: 2vh;
+  z-index: 3;
 }
 
 .workLine{
@@ -235,4 +237,77 @@
     z-index: 10;
     /* adjust the position and font size */
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.scroller {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  z-index: 90;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scroller-in {
+  white-space: nowrap;
+  display: inline-block;
+  animation-name: scroll;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.scroller-in h4 {
+  display: inline-block;
+  text-transform: capitalize;
+  font-size: 300px;
+  opacity: 0.35;
+  -webkit-text-stroke: 1px #fff;
+  color: #000;
+  transition: all linear 0.5s;
+  font-family:'Trebuchet MS', sans-serif;
+  font-weight: 900;
+  margin-right: 17px;
+}
+
+.scroller-in h4:hover {
+  color: #d27530;
+  -webkit-text-stroke: 1px #d27530;
+}
+
+@keyframes scroll {
+  from {
+      transform: translateX(0);
+  }
+
+  to {
+      transform: translateX(-100%);
+  }
+}
+
+
+.hero1 .status{
+  position: absolute;
+  bottom: 50%;
+  z-index: 2;
+  height: 9vh;
+  width: 100%;
 }

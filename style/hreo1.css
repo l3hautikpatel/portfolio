@@ -270,7 +270,7 @@
   white-space: nowrap;
   display: inline-block;
   animation-name: scroll;
-  animation-duration: 30s;
+  animation-duration: 50s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -278,11 +278,11 @@
 .scroller-in h4 {
   display: inline-block;
   text-transform: capitalize;
-  font-size: 300px;
-  opacity: 0.35;
+  font-size: 280px;
+  opacity: 0.3;
   -webkit-text-stroke: 1px #fff;
   color: #000;
-  transition: all linear 0.5s;
+  transition: all linear .5s;
   font-family:'Trebuchet MS', sans-serif;
   font-weight: 900;
   margin-right: 17px;
@@ -306,7 +306,7 @@
 
 .hero1 .status{
   position: absolute;
-  bottom: 50%;
+  bottom: 40%;
   z-index: 2;
   height: 9vh;
   width: 100%;

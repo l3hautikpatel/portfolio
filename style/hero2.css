@@ -1,96 +1,120 @@
 .hero2 {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 
 .hero2left {
-    /* background-color: rgba(255, 0, 0, 0.212);     */
-    height: 100vh;
-    width: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  /* background-color: rgba(255, 0, 0, 0.212); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.skill {
-    background: rgba(0, 0, 0, 0.36);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(8.2px);
-    -webkit-backdrop-filter: blur(8.2px);
-    border: 1px solid rgba(0, 0, 0, 1);
-    padding: 20px;
-    /* width: 30%; */
-    height: 400px; /* adjust the height according to your needs */
-  }
-  
-  .imgcarosual {
-    width: 100%;
-    height: 70%; /* adjust the height according to your needs */
-    overflow: hidden;
-  }
-  
-  .carousel-inner {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding: 20px;
-  }
-  
-  .carousel-item {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .carousel-item img {
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .carousel-item.active {
-    transform: scale(1.1);
-    transition:
-
-.leetcode {
-    height: 20%;
-    width: 30%;
+.hero2left .skill {
+  background: rgba(210, 117, 48, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(108, 109, 124, 0.37);
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-family: "Playwrite DE Grund", cursive;
+  padding: 17px;
 }
+
+.hero2left .skill .skillscroller {
+  padding-bottom: 100px;
+  height: 50px;
+  width: 300px;
+}
+
+.container {
+  width: 100%;
+  height: 2.5rem;
+  font-family: Montserrat;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.container .scroll {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: fit-content;
+  white-space: nowrap;
+  animation: loop 35s linear infinite;
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.scroll img {
+  display: flex;
+  align-items: center;
+  gap: 0 0.2rem;
+  color: #e2e8f0;
+  font-size: .9rem;
+  margin: 0rem .7rem;
+  border-radius: 0.4rem;
+  white-space: nowrap;
+  box-shadow:
+    0 0.1rem 0.2rem #00000033,
+    0 0.1rem 0.5rem #0000004d,
+    0 0.2rem 01.5rem #00000066,
+}
+
+#container .scroll .scroll-two {
+  transform: translateX(100%);
+  animation-delay: 0.1s;
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(5%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.hero2left .skill h6 {
+  font-weight: 100;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 .hero2right {
-    /* background-color: rgba(0, 26, 255, 0.212); */
-    height: 100vh;
-    width: 65%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.resume {
-    height: 20%;
-    width: 30%;
-}
-
-
-.github {
-    height: 20%;
-    width: 100%;
-}
-
-.github img {
-    width: 80%;
-    background-color: black;
-    border-radius: 10px;
+  background-color: rgba(0, 26, 255, 0.212);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

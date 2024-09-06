@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  gap: 0 20px;
 }
 
 
@@ -13,15 +13,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 20px 0;
 }
 
 .hero2left .skill {
-  background: rgba(210, 117, 48, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(108, 109, 124, 0.37);
+  background: #d2753040;
+  /* box-shadow: 0 8px 32px 0 rgba(108, 109, 124, 0.37); */
   backdrop-filter: blur(11.5px);
   -webkit-backdrop-filter: blur(11.5px);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid #ffffff2e;
   font-family: "Playwrite DE Grund", cursive;
   padding: 17px;
 }
@@ -82,7 +84,7 @@
 
 @keyframes loop {
   0% {
-    transform: translateX(5%);
+    transform: translateX(10%);
   }
 
   100% {
@@ -93,6 +95,20 @@
 .hero2left .skill h6 {
   font-weight: 100;
 }
+
+
+
+.hero2left .leetcode{
+  
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -112,9 +128,27 @@
 
 
 .hero2right {
-  background-color: rgba(0, 26, 255, 0.212);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
+
+
+.hero2right .github{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px 0;
+}
+
+.hero2right .resume{
+
+}
+
+
+.hero2right .gitsnack{
+  width: 500px;
+}
+

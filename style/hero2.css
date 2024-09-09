@@ -5,8 +5,12 @@
   align-items: center;
   justify-content: center;
   gap: 0 20px;
+  flex-wrap: wrap; /* Allow elements to wrap to the next line */
 }
 
+/* a{
+  cursor: default ;
+} */
 
 .hero2left {
   /* background-color: rgba(255, 0, 0, 0.212); */
@@ -15,7 +19,17 @@
   justify-content: center;
   flex-direction: column;
   gap: 20px 0;
+  width: 50%; /* Adjust width as needed */
 }
+
+.hero2left .hero2one{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: raw;
+  gap: 20px 20px;
+}
+
 
 .hero2left .skill {
   background: #d2753040;
@@ -132,6 +146,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 50%; /* Adjust width as needed */
 }
 
 
@@ -143,12 +158,62 @@
   gap: 20px 0;
 }
 
-.hero2right .resume{
-
-}
 
 
 .hero2right .gitsnack{
   width: 500px;
+  
+  background: #d2753040;
+  /* box-shadow: 0 8px 32px 0 rgba(108, 109, 124, 0.37); */
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
+  border-radius: 10px;
+  border: 1px solid #ffffff2e;
+  font-family: "Playwrite DE Grund", cursive;
 }
 
+.resume{
+  background: #d2753040;
+  /* box-shadow: 0 8px 32px 0 rgba(108, 109, 124, 0.37); */
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
+  border-radius: 10px;
+  border: 1px solid #ffffff2e;
+  font-family: "Playwrite DE Grund", cursive;
+  padding: 17px;
+}
+
+.resume a {
+  text-decoration: none;
+  color: #d27530;
+  transition: ease-in-out .2s;
+  font-size: xx-large;
+}
+
+.resume a:hover {
+  color: #d2753040;
+}
+
+
+.resume div{
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+}
+.resume div h3{
+  padding-right: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .hero2 {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    gap: 20px;
+  }
+
+  .hero2left,
+  .hero2right {
+    width: 100%; /* Make elements full width */
+  }
+}

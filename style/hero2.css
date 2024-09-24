@@ -4,13 +4,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0 20px;
-  flex-wrap: wrap; /* Allow elements to wrap to the next line */
+  gap: 0 0px;
+  flex-direction: raw ;
+  /* flex-wrap: wrap; Allow elements to wrap to the next line */
 }
 
-/* a{
+a{
   cursor: default ;
-} */
+}
 
 .hero2left {
   /* background-color: rgba(255, 0, 0, 0.212); */
@@ -19,7 +20,7 @@
   justify-content: center;
   flex-direction: column;
   gap: 20px 0;
-  width: 50%; /* Adjust width as needed */
+  width: 50%;
 }
 
 .hero2left .hero2one{
@@ -27,13 +28,12 @@
   align-items: center;
   justify-content: center;
   flex-direction: raw;
-  gap: 20px 20px;
+  gap: 0px 20px;
 }
 
 
 .hero2left .skill {
   background: #d2753040;
-  /* box-shadow: 0 8px 32px 0 rgba(108, 109, 124, 0.37); */
   backdrop-filter: blur(11.5px);
   -webkit-backdrop-filter: blur(11.5px);
   border-radius: 10px;
@@ -113,7 +113,7 @@
 
 
 .hero2left .leetcode{
-  
+  scale: 0.9;
 }
 
 
@@ -146,7 +146,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 50%; /* Adjust width as needed */
+  width: 43%; /* Adjust width as needed */
 }
 
 
@@ -155,7 +155,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px 0;
+  gap: 15px 0;
 }
 
 
@@ -210,10 +210,51 @@
   .hero2 {
     flex-direction: column; /* Stack elements vertically on smaller screens */
     gap: 20px;
+    min-height: 200%;
+    /* z-index: 999; */
+  }
+
+  .hero2left {
+    z-index: 99;
   }
 
   .hero2left,
   .hero2right {
     width: 100%; /* Make elements full width */
+    flex-direction: coloumn;
+    align-items: center;
   }
+  
+  .hero2left .hero2one{
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .hero2right .github{
+    /* display: none; */
+    scale: 0.7;
+    margin-top: -60px;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero2right .github2{
+    width: 100%;
+    display: none;
+  }
+
+  .hero2left .gitsnack{ 
+    width: 100%;
+  }
+
+  .hero2left .skill .skillscroller {
+    padding-bottom: 10px;
+  }
+
+  .hero2left .leetcode{
+    margin: -60px;
+    scale: 0.62;
+  }
+
 }

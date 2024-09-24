@@ -1,6 +1,6 @@
 nav {
     position: sticky;
-    z-index: 99;
+    z-index: 999;
     top: 0px;
     margin-top: 0.5%;
     display: flex;
@@ -97,6 +97,7 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
+    
     .nav-links {
         position: fixed;
         top: 0;
@@ -118,6 +119,7 @@ nav {
 
     .burger {
         display: block;
+        
     }
 
     .nav-active {

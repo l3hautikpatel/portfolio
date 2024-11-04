@@ -1,0 +1,203 @@
+.iam {
+    background-color: #111;
+    color: #fff;
+    padding: 10% 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    display: none;
+}
+
+.iam .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.iam .section-title {
+    text-align: center;
+    margin-bottom: 60px;
+    opacity: 0;
+}
+
+.iam .title {
+    font-size: 3rem;
+    color: #d27530;
+    margin-bottom: 20px;
+}
+
+.iam .title-bar {
+    width: 70px;
+    height: 4px;
+    background: #d27530;
+    margin: 0 auto;
+}
+
+.iam .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    opacity: 0;
+}
+
+.iam .greeting {
+    font-size: 1.2rem;
+    color: #d27530;
+    margin-bottom: 10px;
+}
+
+.iam .name {
+    font-size: 3.5rem;
+    margin: 10px 0;
+    background: linear-gradient(45deg, #d27530, #ff9b5c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.iam .role {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.iam .description {
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.iam .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.iam .stat-item {
+    text-align: center;
+    padding: 20px;
+    background: rgba(210, 117, 48, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.iam .stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.iam .number {
+    display: block;
+    font-size: 2rem;
+    color: #d27530;
+    margin-bottom: 5px;
+}
+
+.iam .label {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.iam .key-points {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.iam .point {
+    background: rgba(210, 117, 48, 0.1);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.iam .skills-container {
+    background: rgba(210, 117, 48, 0.05);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.iam .skills-container h3 {
+    color: #d27530;
+    margin-bottom: 25px;
+}
+
+.iam .skill-category {
+    margin-bottom: 25px;
+}
+
+.iam .skill-category h4 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.iam .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.iam .tech-tags span {
+    background: rgba(210, 117, 48, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.iam .tech-tags span:hover {
+    background: rgba(210, 117, 48, 0.4);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+    .iam .container {
+        padding: 0 30px;
+    }
+    
+    .iam .name {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .iam .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .iam .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .iam .name {
+        font-size: 2.5rem;
+    }
+    
+    .iam .description {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .iam .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .iam .key-points {
+        flex-direction: column;
+    }
+    
+    .iam  .name {
+        font-size: 2rem;
+    }
+    
+    .iam .title {
+        font-size: 2.5rem;
+    }
+    
+    .iam .tech-tags span {
+        font-size: 0.8rem;
+    }
+}

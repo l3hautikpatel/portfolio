@@ -1,64 +1,59 @@
-const projects = document.querySelectorAll('.project');
-const navContainer = document.querySelector('.navigation');
-const background = document.querySelector('.project-background');
-let currentIndex = 0;
-let timeoutId = null;
-let intervalId = null;
+// Ensure GSAP and ScrollTrigger are loaded
+gsap.registerPlugin(ScrollTrigger);
 
-// Create navigation dots
-projects.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.classList.add('nav-dot');
-    dot.addEventListener('click', () => goToProject(index, true));
-    navContainer.appendChild(dot);
+// Animation for section title
+gsap.from('.hero3 .section-title', {
+  opacity: 0,
+  y: -50,
+  duration: 1,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '.hero3',
+    start: 'top center+=100',
+    toggleActions: 'play none none reverse'
+  }
 });
 
-const navDots = document.querySelectorAll('.nav-dot');
+// Animation for project cards
+gsap.utils.toArray('.hero3 .project').forEach((project, index) => {
+  gsap.from(project, {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: project,
+      start: 'top bottom-=100',
+      toggleActions: 'play none none reverse'
+    },
+    delay: index * 0.2
+  });
+});
 
-function goToProject(index, manual = false) {
-    // Clear any existing timers
-    clearTimeout(timeoutId);
-    clearInterval(intervalId);
-
-    // Update classes and background
-    projects[currentIndex].classList.remove('active');
-    navDots[currentIndex].classList.remove('active');
-    currentIndex = index;
-    projects[currentIndex].classList.add('active');
-    navDots[currentIndex].classList.add('active');
-    updateBackground();
-
-    // Set up next automatic transition
-    if (manual) {
-        timeoutId = setTimeout(() => {
-            intervalId = setInterval(nextProject, 5000);
-        }, 10000);
-    } else {
-        intervalId = setInterval(nextProject, 5000);
-    }
+// Slow down background video if it exists
+const bgVideo = document.querySelector('.hero3 .bg-video');
+if (bgVideo) {
+  bgVideo.playbackRate = 0.5;
 }
 
-function nextProject() {
-    goToProject((currentIndex + 1) % projects.length);
-}
+// Optional: Add filtering functionality
+const filterButtons = document.querySelectorAll('.hero3 .filter-btn');
+const projects = document.querySelectorAll('.hero3 .project');
 
-function updateBackground() {
-    const newBackgroundImage = window.getComputedStyle(projects[currentIndex].querySelector('.project-image')).backgroundImage;
-    background.style.backgroundImage = newBackgroundImage;
-}
-
-// Initial setup
-navDots[0].classList.add('active');
-updateBackground();
-intervalId = setInterval(nextProject, 5000);
-
-// Add hover pause functionality
-projects.forEach(project => {
-    project.addEventListener('mouseenter', () => {
-        clearTimeout(timeoutId);
-        clearInterval(intervalId);
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    
+    projects.forEach(project => {
+      if (filter === 'all' || project.classList.contains(filter)) {
+        project.style.display = 'flex';
+      } else {
+        project.style.display = 'none';
+      }
     });
-    project.addEventListener('mouseleave', () => {
-        intervalId = setInterval(nextProject, 5000);
-    });
+
+    // Update active button
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+  });
 });

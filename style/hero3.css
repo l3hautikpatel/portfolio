@@ -1,4 +1,121 @@
-
-.hero3{
-    display: none;
-}
+.hero3 {
+    position: relative;
+    color: white;
+    padding: 50px 0;
+    font-family: "Playwrite DE Grund", cursive;
+    overflow: hidden;
+  }
+  
+  .hero3 .bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.1;
+  }
+  
+  .hero3 .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ff8c42;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  .hero3 .project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .hero3 .project {
+    background-color: rgba(40, 40, 40, 0.8);
+    border-radius: 15px;
+    overflow: hidden;
+    width: 380px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hero3 .project:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(255,140,66,0.3);
+  }
+  
+  .hero3 .project-media {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .hero3 .project-media video,
+  .hero3 .project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .hero3 .project-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .hero3 .project-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #ff8c42;
+  }
+  
+  .hero3 .project-purpose {
+    font-size: 0.8rem;
+    color: #ffa76a;
+    margin-bottom: 10px;
+  }
+  
+  .hero3 .project-description {
+    font-size: 0.9rem;
+    /* margin-bottom: px; */
+    line-height: 1.7;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+  
+  .hero3 .project-details {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    color: #ccc;
+  }
+  
+  .hero3 .project-link {
+    display: inline-block;
+    background-color: #ff8c42;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: flex-start;
+    margin-top: auto;
+  }
+  
+  .hero3 .project-link:hover {
+    background-color: #ff6b1a;
+    transform: scale(1.05);
+  }
+  
+  .hero3 .section-subtitle {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #ffa76a;
+  }

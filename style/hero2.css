@@ -1,260 +1,244 @@
 .hero2 {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0 0px;
-  flex-direction: raw ;
-  /* flex-wrap: wrap; Allow elements to wrap to the next line */
+  gap: 1.5rem;
+  flex-direction: row;
+  padding: 1.5rem;
+  padding-top: 7%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-a{
-  cursor: default ;
+a {
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .hero2left {
-  /* background-color: rgba(255, 0, 0, 0.212); */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px 0;
+  gap: 1.5rem;
   width: 50%;
+  max-width: 600px;
 }
 
-.hero2left .hero2one{
+.hero2left .hero2one {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  flex-direction: raw;
-  gap: 0px 20px;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
 }
-
 
 .hero2left .skill {
-  background: #d2753040;
+  background: rgba(210, 117, 48, 0.25);
   backdrop-filter: blur(11.5px);
   -webkit-backdrop-filter: blur(11.5px);
   border-radius: 10px;
-  border: 1px solid #ffffff2e;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   font-family: "Playwrite DE Grund", cursive;
-  padding: 17px;
+  padding: 1rem;
+  flex: 1;
+  min-width: 0; /* Prevents flex item from overflowing */
 }
 
 .hero2left .skill .skillscroller {
-  padding-bottom: 100px;
   height: 50px;
-  width: 300px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
-.container {
+.hero2 .container {
   width: 100%;
   height: 2.5rem;
-  font-family: Montserrat;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
-  color: #fff;
 }
 
-.container .scroll {
+.hero2 .container .scroll {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  width: fit-content;
-  white-space: nowrap;
-  animation: loop 35s linear infinite;
+  gap: 0.75rem;
+  animation: scrollLoop 3s linear infinite;
 }
 
-@keyframes loop {
+@keyframes scrollLoop {
   0% {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - 0.5rem));
   }
 }
 
-.scroll img {
-  display: flex;
-  align-items: center;
-  gap: 0 0.2rem;
-  color: #e2e8f0;
-  font-size: .9rem;
-  margin: 0rem .7rem;
+.hero2 .scroll img {
+  height: 35px; /* Reduced from 50px */
+  width: auto;
+  padding: 0.2rem;
   border-radius: 0.4rem;
-  white-space: nowrap;
-  box-shadow:
-    0 0.1rem 0.2rem #00000033,
-    0 0.1rem 0.5rem #0000004d,
-    0 0.2rem 01.5rem #00000066,
+  transition: transform 0.3s ease;
 }
 
-#container .scroll .scroll-two {
-  transform: translateX(100%);
-  animation-delay: 0.1s;
-}
-
-@keyframes loop {
-  0% {
-    transform: translateX(10%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
+.hero2 .scroll img:hover {
+  transform: scale(1.1);
 }
 
 .hero2left .skill h6 {
-  font-weight: 100;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
 }
 
-
-
-.hero2left .leetcode{
-  scale: 0.9;
+.hero2left .skill h3 {
+  margin-top: 0.25rem;
+  color: #fff;
+  font-size: 1.2rem;
 }
 
+.hero2left .leetcode {
+  width: 100%;
+  transform: scale(0.95); /* Slightly reduced scale */
+  transition: transform 0.3s ease;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.hero2left .leetcode img {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+}
 
 .hero2right {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 43%; /* Adjust width as needed */
+  width: 45%;
+  max-width: 550px;
 }
 
-
-.hero2right .github{
+.hero2right .github {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 15px 0;
+  gap: 1rem;
+  width: 100%;
 }
 
+.hero2right .github img {
+  width: 100%;
+  max-width: 450px;
+  transition: transform 0.3s ease;
+}
 
-
-.hero2right .gitsnack{
-  width: 500px;
-  
-  background: #d2753040;
-  /* box-shadow: 0 8px 32px 0 rgba(108, 109, 124, 0.37); */
+.hero2right .gitsnack {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(210, 117, 48, 0.25);
   backdrop-filter: blur(11.5px);
   -webkit-backdrop-filter: blur(11.5px);
   border-radius: 10px;
-  border: 1px solid #ffffff2e;
-  font-family: "Playwrite DE Grund", cursive;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.resume{
-  background: #d2753040;
-  /* box-shadow: 0 8px 32px 0 rgba(108, 109, 124, 0.37); */
+.hero2 .resume {
+  background: rgba(210, 117, 48, 0.25);
   backdrop-filter: blur(11.5px);
   -webkit-backdrop-filter: blur(11.5px);
   border-radius: 10px;
-  border: 1px solid #ffffff2e;
-  font-family: "Playwrite DE Grund", cursive;
-  padding: 17px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 1rem;
+  flex: 1;
+  min-width: 0; /* Prevents flex item from overflowing */
 }
 
-.resume a {
-  text-decoration: none;
+.hero2 .resume h6 {
+  font-size: 0.8rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero2 .resume a {
   color: #d27530;
-  transition: ease-in-out .2s;
-  font-size: xx-large;
+  transition: color 0.3s ease;
+  font-size: 1.25rem;
 }
 
-.resume a:hover {
-  color: #d2753040;
+.hero2 .resume a:hover {
+  color: #fff;
 }
 
-
-.resume div{
-  display: flex; 
+.hero2 .resume div {
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-
+  gap: 0.75rem;
+  margin-top: 0.75rem;
 }
-.resume div h3{
-  padding-right: 100px;
+
+.hero2 .resume div h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .hero2 {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .hero2left,
+  .hero2right {
+    width: 48%;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .hero2 {
-    flex-direction: column; /* Stack elements vertically on smaller screens */
-    gap: 20px;
-    min-height: 200%;
-    /* z-index: 999; */
-  }
-
-  .hero2left {
-    z-index: 99;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
   }
 
   .hero2left,
   .hero2right {
-    width: 100%; /* Make elements full width */
-    flex-direction: coloumn;
-    align-items: center;
+    width: 100%;
+    max-width: 100%;
   }
-  
-  .hero2left .hero2one{
+
+  .hero2left .hero2one {
     flex-direction: column;
-    gap: 10px;
-  }
-  
-  .hero2right .github{
-    /* display: none; */
-    scale: 0.7;
-    margin-top: -60px;
-    width: 100%;
-    flex-direction: column;
-    gap: 10px;
+    gap: 1rem;
   }
 
-  .hero2right .github2{
-    width: 100%;
-    display: none;
+  .hero2 .scroll img {
+    height: 30px; /* Even smaller on mobile */
   }
 
-  .hero2left .gitsnack{ 
+  .hero2right .github {
     width: 100%;
   }
 
-  .hero2left .skill .skillscroller {
-    padding-bottom: 10px;
+  .hero2right .github img {
+    max-width: 100%;
   }
 
-  .hero2left .leetcode{
-    margin: -60px;
-    scale: 0.62;
+  .hero2left .leetcode {
+    transform: scale(1);
   }
 
+  .hero2left .leetcode img {
+    width: 100%;
+    height: auto;
+  }
 }

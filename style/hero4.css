@@ -1,0 +1,205 @@
+.hero4 {
+    background-color: #000;
+    min-height: 100vh;
+    color: #ffffff;
+    padding: 4rem 1rem;
+    padding-top: 10%;
+    position: relative;
+    overflow: hidden;
+    font-family: "Playwrite DE Grund", cursive;
+}
+
+.hero4 .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+/* Section styling */
+.hero4 .timeline-section {
+    position: relative;
+}
+
+.hero4 .section-title {
+    color: #d27530;
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    margin-bottom: 3rem;
+    font-weight: 600;
+    opacity: 1;
+}
+
+/* Timeline item styling */
+.hero4 .timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 3rem;
+    opacity: 1;
+}
+
+/* Timeline visual elements */
+.hero4 .timeline-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: -50px;
+    width: 2px;
+    background-color: #d27530;
+}
+
+.hero4 .timeline-dot {
+    position: absolute;
+    left: -4px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #d27530;
+    transition: transform 0.3s ease;
+}
+
+.hero4 .timeline-item:hover .timeline-dot {
+    transform: scale(1.5);
+}
+
+/* Content styling */
+.hero4 .timeline-header {
+    margin-bottom: 1rem;
+}
+
+.hero4 .timeline-title {
+    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+    color: #d27530;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.hero4 .timeline-date {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.hero4 .timeline-location {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.hero4 .timeline-content {
+    color: #aaa;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+}
+
+/* List styling */
+.hero4 .timeline-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.hero4 .timeline-content li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.hero4 .timeline-content li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #d27530;
+}
+
+/* Hover effects */
+.hero4 .timeline-item:hover .timeline-title {
+    color: #e08845;
+    transition: color 0.3s ease;
+}
+
+/* Responsive design */
+@media screen and (max-width: 1024px) {
+    .hero4 .container {
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero4 {
+        padding: 3rem 1rem;
+        padding-top: 10%;
+    }
+
+    .hero4 .container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .hero4 .section-title {
+        margin-bottom: 2rem;
+    }
+
+    .hero4 .timeline-item {
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero4 {
+        padding: 2rem 0.5rem;
+    }
+
+    .hero4 .container {
+        padding: 0 0.5rem;
+    }
+
+    .hero4 .timeline-item {
+        padding-left: 1.25rem;
+    }
+
+    .hero4 .timeline-content li {
+        padding-left: 1rem;
+    }
+}
+
+/* Dark mode optimization */
+@media (prefers-color-scheme: dark) {
+    .hero4 {
+        background-color: #0a0a0a;
+    }
+
+    .hero4 .timeline-location {
+        color: #888;
+    }
+
+    .hero4 .timeline-content {
+        color: #bbb;
+    }
+}
+
+/* Print optimization */
+@media print {
+    .hero4 {
+        background: white;
+        color: black;
+        padding: 1rem;
+    }
+
+    .hero4 .timeline-line,
+    .hero4 .timeline-dot {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .hero4 * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

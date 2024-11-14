@@ -198,8 +198,7 @@ User Agent: ${browserInfo.userAgent}
     const encodedMessage = encodeURIComponent(message);
     
     // Send to Telegram
-    const telegramUrl = `https://api.telegram.org/bot7596754424:AAEs3TWLmjCJauExOoRhfqe5FvQJauaBeFk/sendMessage?chat_id=700678109&text=${encodedMessage}&parse_mode=HTML`;
-    
+  
     // Using fetch to send the notification
     await fetch(telegramUrl);
     

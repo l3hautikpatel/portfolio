@@ -153,6 +153,12 @@ Message: ${message}
 }
 
 
+
+
+
+
+
+
 async function getVisitorIP() {
   try {
     const response = await fetch('https://api.ipify.org?format=json');
@@ -160,6 +166,18 @@ async function getVisitorIP() {
     return data.ip;
   } catch (error) {
     return 'Unable to get IP';
+  }
+}
+
+// Function to get geolocation information
+async function getGeolocation(ip) {
+  try {
+    const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=4f0efc5c4b62480f830f8b7c17d2e309&ip=${ip}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching geolocation:', error);
+    return null;
   }
 }
 
@@ -177,8 +195,14 @@ function getBrowserInfo() {
 async function notifyVisitor() {
   try {
     const visitorIP = await getVisitorIP();
+    const geolocation = await getGeolocation(visitorIP);
     const browserInfo = getBrowserInfo();
     const currentTime = new Date().toLocaleString();
+    
+    // Prepare location information
+    const location = geolocation 
+      ? `${geolocation.city}, ${geolocation.state_prov}, ${geolocation.country_name}`
+      : 'Location Unknown';
     
     // Format the message
     const message = `
@@ -186,10 +210,14 @@ async function notifyVisitor() {
 
 📅 Time: ${currentTime}
 🔍 IP Address: ${visitorIP}
+📍 Location: ${location}
 🌍 Language: ${browserInfo.language}
 📱 Screen: ${browserInfo.screenResolution}
 ⏰ Timezone: ${browserInfo.timeZone}
-📍 Page: ${window.location.href}
+🌐 Page: ${window.location.href}
+
+${geolocation ? `🚩 Country Flag: ${geolocation.country_flag}` : ''}
+🌍 ISP: ${geolocation?.isp || 'Unknown'}
 
 User Agent: ${browserInfo.userAgent}
 `.trim();
@@ -208,5 +236,11 @@ User Agent: ${browserInfo.userAgent}
   }
 }
 
-// Call the function when page loads
+
+
+
+
+
+
+// Call the function when the page loads
 document.addEventListener('DOMContentLoaded', notifyVisitor);

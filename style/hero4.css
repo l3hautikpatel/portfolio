@@ -14,8 +14,8 @@
     margin: 0 auto;
     padding: 0 1rem;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
+    grid-template-columns: 30% 70%;
+    gap: 10%;
 }
 
 /* Section styling */

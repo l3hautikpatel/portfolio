@@ -58,3 +58,5 @@
 .row:nth-child(odd) {
     transform: translateX(25px);
 }
+
+

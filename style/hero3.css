@@ -53,6 +53,7 @@
     width: 100%;
     height: 200px;
     overflow: hidden;
+    position: relative;
   }
   
   .hero3 .project-media video,
@@ -60,6 +61,58 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  /* Carousel styles */
+  .hero3 .carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero3 .carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 0.8s ease-in-out, transform 1.2s ease-in-out;
+    z-index: 1;
+  }
+
+  .hero3 .carousel img.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+  }
+
+  /* Navigation dots for carousel */
+  .hero3 .carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    z-index: 5;
+  }
+
+  .hero3 .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .hero3 .carousel-dot.active {
+    background-color: #ff8c42;
   }
   
   .hero3 .project-info {
@@ -118,4 +171,12 @@
     font-size: 2rem;
     margin-bottom: 30px;
     color: #ffa76a;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero3 .project {
+      width: 90%;
+      max-width: 380px;
+    }
   }

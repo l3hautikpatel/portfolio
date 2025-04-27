@@ -209,6 +209,11 @@
     order: 3;
     height: 7vh;
   }
+
+  .hero1 .scroll-Text {
+    display: none;
+  }
+
 }
 
 /* For screens with a maximum width of 480px (e.g. mobile phones) */
@@ -276,6 +281,7 @@
   }
 
   .hero1 .scroll-Text {
+    display: none;
     bottom: 5%;
     right: 5%;
     font-size: small;

@@ -56,3 +56,27 @@ scrollerIns.forEach((scrollerIn) => {
     scrollerIn.appendChild(h4);
   });
 });
+
+// Add responsive handling for the scroller text size
+function adjustScrollerSize() {
+  const viewportWidth = window.innerWidth;
+  const scrollerH4Elements = document.querySelectorAll('.scroller-in h4');
+  
+  if (viewportWidth <= 480) {
+    scrollerH4Elements.forEach(h4 => {
+      h4.style.fontSize = '140px';
+    });
+  } else if (viewportWidth <= 768) {
+    scrollerH4Elements.forEach(h4 => {
+      h4.style.fontSize = '200px';
+    });
+  } else {
+    scrollerH4Elements.forEach(h4 => {
+      h4.style.fontSize = '280px';
+    });
+  }
+}
+
+// Run on load and when window is resized
+window.addEventListener('load', adjustScrollerSize);
+window.addEventListener('resize', adjustScrollerSize);

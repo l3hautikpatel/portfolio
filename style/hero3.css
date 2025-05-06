@@ -53,6 +53,7 @@
     width: 100%;
     height: 200px;
     overflow: hidden;
+    position: relative;
   }
   
   .hero3 .project-media video,
@@ -60,6 +61,58 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  /* Carousel styles */
+  .hero3 .carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero3 .carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 0.8s ease-in-out, transform 1.2s ease-in-out;
+    z-index: 1;
+  }
+
+  .hero3 .carousel img.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+  }
+
+  /* Navigation dots for carousel */
+  .hero3 .carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    z-index: 5;
+  }
+
+  .hero3 .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .hero3 .carousel-dot.active {
+    background-color: #ff8c42;
   }
   
   .hero3 .project-info {
@@ -118,4 +171,320 @@
     font-size: 2rem;
     margin-bottom: 30px;
     color: #ffa76a;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero3 .project {
+      width: 90%;
+      max-width: 380px;
+    }
+  }
+
+  /* Fullscreen Preview Modal */
+  .fullscreen-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    overflow: hidden;
+  }
+
+  .fullscreen-preview.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .fullscreen-preview-content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .fullscreen-preview img, 
+  .fullscreen-preview video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .fullscreen-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 10000;
+    transition: transform 0.2s ease;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .fullscreen-close:hover {
+    transform: scale(1.2);
+    color: #ff8c42;
+  }
+
+  /* Carousel fullscreen controls */
+  .fullscreen-preview .carousel-fullscreen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .fullscreen-preview .carousel-fullscreen img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 0.8s ease-in-out, transform 1.2s ease-in-out;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .fullscreen-preview .carousel-fullscreen img.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+  }
+
+  .fullscreen-nav {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    z-index: 10000;
+  }
+
+  .fullscreen-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    margin: 0 5px;
+    position: relative;
+    z-index: 10001;
+  }
+
+  .fullscreen-dot.active {
+    background-color: #ff8c42;
+    transform: scale(1.2);
+  }
+
+  .fullscreen-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    transform: translateY(-50%);
+    z-index: 10000;
+    pointer-events: none;
+  }
+
+  .fullscreen-arrow {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    pointer-events: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .fullscreen-arrow:hover {
+    background-color: rgba(255, 140, 66, 0.7);
+    transform: scale(1.1);
+  }
+
+  /* Ensure arrow icons display properly */
+  .fullscreen-arrow i {
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  /* Make project media clickable with visual cue */
+  .hero3 .project-media {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .hero3 .project-media::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 140, 66, 0);
+    transition: background-color 0.3s ease;
+    pointer-events: none;
+  }
+
+  .hero3 .project-media:hover::after {
+    background-color: rgba(255, 140, 66, 0.2);
+  }
+
+  .hero3 .project-media::before {
+    content: "🔍";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 30px;
+    color: white;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .hero3 .project-media:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* Improve touch target size for mobile */
+  @media (max-width: 768px) {
+    .fullscreen-arrow {
+      width: 44px;
+      height: 44px;
+      font-size: 24px;
+    }
+    
+    .fullscreen-arrow i {
+      font-size: 30px;
+    }
+    
+    .fullscreen-dot {
+      width: 12px;
+      height: 12px;
+      margin: 0 6px;
+    }
+    
+    /* Ensure content fits nicely on mobile */
+    .fullscreen-preview-content {
+      width: 95%;
+      height: 70%;
+      max-height: 70vh;
+    }
+  }
+
+  /* Further adjustments for small screens */
+  @media (max-width: 480px) {
+    /* Increase size of dots on very small screens */
+    .fullscreen-dot {
+      width: 14px;
+      height: 14px;
+      margin: 0 8px;
+    }
+    
+    /* Give more room at the bottom for navigation */
+    .fullscreen-nav {
+      bottom: 25px;
+    }
+    
+    /* Make sure close button is easy to tap */
+    .fullscreen-close {
+      top: 15px;
+      right: 15px;
+      font-size: 40px;
+      padding: 5px;
+    }
+    
+    /* Adjust arrows for easier tapping */
+    .fullscreen-arrow {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .fullscreen-arrow i {
+      font-size: 36px;
+    }
+  }
+
+  /* Loading spinner for fullscreen preview */
+  .fullscreen-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 140, 66, 0.3);
+    border-radius: 50%;
+    border-top-color: #ff8c42;
+    animation: spin 1s ease-in-out infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  @keyframes spin {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  /* Disable preview completely on mobile */
+  @media (max-width: 768px) {
+    /* Remove all hover and clickable effects on project media for mobile */
+    .hero3 .project-media::before,
+    .hero3 .project-media::after {
+      content: none !important;
+      display: none !important;
+    }
+    
+    .hero3 .project-media {
+      cursor: default !important;
+      pointer-events: none !important; /* Prevents click events */
+    }
+    
+    /* Make the content (like videos) clickable again */
+    .hero3 .project-media video,
+    .hero3 .project-media img,
+    .hero3 .carousel {
+      pointer-events: auto !important;
+    }
+    
+    /* Hide fullscreen preview elements on mobile */
+    .fullscreen-preview,
+    .fullscreen-preview * {
+      display: none !important;
+    }
   }

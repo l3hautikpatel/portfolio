@@ -32,7 +32,7 @@
 
 .hero1-left .title {
   font-size: 30px;
-  z-index: 3;
+  z-index: 5;
 }
 
 .hero1-left .name{
@@ -43,7 +43,7 @@
 .hero1-left .ptext{
   font-size: large;
   padding-top: 2vh;
-  z-index: 3;
+  z-index: 5;
 }
 
 .workLine{
@@ -148,41 +148,47 @@
 
 /* Media queries for mobile responsiveness */
 
-/* For screens with a maximum width of 768px (e.g. iPads) *//* ... (rest of the CSS code remains the same) */
-
-/* Media queries for mobile responsiveness */
-
 /* For screens with a maximum width of 768px (e.g. iPads) */
 @media (max-width: 768px) {
   .hero1 {
     flex-direction: column;
     /* switch to a vertical layout */
+    height: auto;
+    padding: 3vh 0;
   }
 
   .hero1-left {
     width: 100%;
     /* take up the full width */
+    height: auto;
+    order: 2;
+    margin-top: 20px;
+    z-index: 5;
   }
 
   .hero1-right {
     width: 100%;
     /* take up the full width */
+    height: 40vh;
+    position: relative;
+    order: 1;
   }
 
   .hero1-right .bhautikImg {
-    height: 50vh;
+    position: relative;
+    height: 100%;
     /* reduce the height */
   }
 
   .hero1-right img.blob {
-    height: 50vh;
+    height: 100%;
     /* reduce the height */
   }
 
   .hero1-right img.facecut {
-    height: 40vh;
+    height: 30vh;
     /* reduce the height */
-    width: 40vh;
+    width: 30vh;
     /* reduce the width */
   }
 
@@ -195,47 +201,105 @@
     font-size: large;
     /* reduce the font size */
   }
+  
+  .hero1 .status {
+    position: relative;
+    bottom: auto;
+    margin-top: 20px;
+    order: 3;
+    height: 7vh;
+  }
+
+  .hero1 .scroll-Text {
+    display: none;
+  }
+
 }
 
 /* For screens with a maximum width of 480px (e.g. mobile phones) */
 @media (max-width: 480px) {
+  .hero1 {
+    padding: 2vh 0;
+  }
+
+  .hero1-right {
+    height: 35vh;
+    margin-bottom: 10px;
+  }
+
   .hero1-right .bhautikImg {
-    height: 30vh;
-    /* reduce the height further */
+    height: 100%;
+    /* ensure full height */
+    position: relative;
   }
 
   .hero1-right img.blob {
-    top: -20%;
-    height: 45vh;
-    display: block;
-    /* reduce the height further */
+    height: 100%;
+    top: 0;
   }
 
   .hero1-right img.facecut {
-    height: 25vh;
-    border-radius: 50%;
-    /* box-shadow: 5px 5px 5px 0px rgba(235, 0, 0, 0.3); */
-    filter: drop-shadow(15px 5px 15px rgba(210, 119, 49, 0.7));
-    width: 25vh;
-    /* reduce the width further */
+    height: 20vh;
+    width: 20vh;
+    filter: drop-shadow(10px 5px 10px rgba(210, 119, 49, 0.7));
+  }
+
+  .hero1-left {
+    padding: 20px 5%;
+    background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
+    border-radius: 10px;
+    margin: 0 10px;
+    width: calc(100% - 20px);
+  }
+
+  .hero1-left .title {
+    font-size: 24px;
+    color: #fff;
+  }
+
+  .hero1-left .name {
+    font-size: 36px;
   }
 
   .hero1-left .h1s {
     height: 5vh;
     /* reduce the height further */
+    margin-bottom: 10px;
+    z-index: 15;
+    position: relative;
   }
 
   .hero1-left .h1s h1 {
-    font-size: x-large;
-    /* reduce the font size further */
+    font-size: large;
+    /* adjust font size for better visibility */
+  }
+
+  .hero1-left .ptext {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
   }
 
   .hero1 .scroll-Text {
-    bottom: 15%;
+    display: none;
+    bottom: 5%;
     right: 5%;
     font-size: small;
-    z-index: 10;
-    /* adjust the position and font size */
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: #fff;
+  }
+  
+  .hero1 .status {
+    height: 5vh;
+    overflow: hidden;
+    margin-top: 15px;
+  }
+  
+  .scroller-in h4 {
+    font-size: 140px;
   }
 }
 

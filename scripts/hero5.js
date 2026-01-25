@@ -194,16 +194,19 @@ function getBrowserInfo() {
 // Function to send visitor notification to Telegram
 async function notifyVisitor() {
   try {
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    // this line is checking if the user is on localhost or not and skipping the notification if the user is on localhost if the function of the message to the telegram is not working/testing commit and uncomment this line to test
+    if (isLocalhost) return;
     const visitorIP = await getVisitorIP();
     const geolocation = await getGeolocation(visitorIP);
     const browserInfo = getBrowserInfo();
     const currentTime = new Date().toLocaleString();
-    
+
     // Prepare location information
-    const location = geolocation 
+    const location = geolocation
       ? `${geolocation.city}, ${geolocation.state_prov}, ${geolocation.country_name}`
       : 'Location Unknown';
-    
+
     // Format the message
     const message = `
 🌐 New Website Visitor!
@@ -224,13 +227,13 @@ User Agent: ${browserInfo.userAgent}
 
     // Encode the message for URL
     const encodedMessage = encodeURIComponent(message);
-    
+
     // Send to Telegram
     const telegramUrl = `https://api.telegram.org/bot7596754424:AAEs3TWLmjCJauExOoRhfqe5FvQJauaBeFk/sendMessage?chat_id=700678109&text=${encodedMessage}&parse_mode=HTML`;
-    
+
     // Using fetch to send the notification
     await fetch(telegramUrl);
-    
+
   } catch (error) {
     console.error('Error sending visitor notification:', error);
   }

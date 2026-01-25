@@ -156,7 +156,7 @@
     .iam .container {
         padding: 0 30px;
     }
-    
+
     .iam .name {
         font-size: 3rem;
     }
@@ -166,15 +166,15 @@
     .iam .content-wrapper {
         grid-template-columns: 1fr;
     }
-    
+
     .iam .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .iam .name {
         font-size: 2.5rem;
     }
-    
+
     .iam .description {
         font-size: 0.95rem;
     }
@@ -184,19 +184,19 @@
     .iam .stats-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .iam .key-points {
         flex-direction: column;
     }
-    
-    .iam  .name {
+
+    .iam .name {
         font-size: 2rem;
     }
-    
+
     .iam .title {
         font-size: 2.5rem;
     }
-    
+
     .iam .tech-tags span {
         font-size: 0.8rem;
     }

@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="./style/hero3.css" />
   <link rel="stylesheet" href="./style/hero4.css" />
   <link rel="stylesheet" href="./style/hero5.css" />
+  <link rel="stylesheet" href="./style/chat.css" />
 </head>
 
 <body>
@@ -269,21 +270,11 @@
             </div>
             <div class="timeline-content">
               <ul>
-                <li>Developed custom automation scripts and test utilities using strong programming fundamentals to
-                  support
-                  scalable quality validation</li>
-                <li>Contributed to test framework improvements with a focus on maintainability, reusability, and
-                  performance
-                </li>
-                <li>Supported automation of critical test scenarios, reducing manual testing effort and increasing
-                  release
-                  confidence</li>
-                <li>Actively participated in code reviews and technical discussions to improve test design and software
-                  quality</li>
-                <li>Leveraged AI-assisted tools to accelerate test development and improve overall automation efficiency
-                </li>
-
-
+                <li>Tested and validated high-volume, mission-critical systems processing billions of transactions in production environments.</li>
+                <li>Worked extensively with robust financial networks and transaction messaging protocols, including ISO8583, Mastercard, and Amex formats.</li>
+                <li>Architected and implemented GitHub Actions CI/CD pipelines to automate regression testing, streamlining the delivery flow from quality checks to production launch.</li>
+                <li>Structured and deployed advanced test automation tools and frameworks to increase coverage, establish new testing standards, and reduce manual regression efforts.</li>
+                <li>Leveraged modern AI development tools such as GitHub Copilot and Windsurf to significantly accelerate test script creation, pipeline configuration, and overall development speed.</li>
               </ul>
             </div>
           </div>
@@ -900,6 +891,28 @@
       <script src="./scripts/hero3.js"></script>
       <script src="./scripts/hero4.js"></script>
       <script src="./scripts/hero5.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      <script src="./scripts/chat.js"></script>
+      
+      <!-- Chatbot UI Widget -->
+      <div id="chat-widget-container">
+        <!-- Chat toggle button -->
+        <button id="chat-toggle-btn">
+          <i class="ri-chat-3-line"></i>
+        </button>
+        <!-- Chat window -->
+        <div id="chat-window" class="hidden">
+          <div id="chat-header">
+            <h4>Chat with AI</h4>
+            <button id="close-chat-btn"><i class="ri-close-line"></i></button>
+          </div>
+          <div id="chat-messages"></div>
+          <div id="chat-input-container">
+            <input type="text" id="chat-input" placeholder="Type your message..." />
+            <button id="chat-send-btn"><i class="ri-send-plane-fill"></i></button>
+          </div>
+        </div>
+      </div>
 </body>
 
 </html>

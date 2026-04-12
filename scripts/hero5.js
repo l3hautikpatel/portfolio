@@ -64,93 +64,56 @@ gsap.utils.toArray(".hero5 .social-link").forEach(link => {
 
 
 
-// Add this JavaScript to your website
+// ─── Contact Form Handler ────────────────────────────────────────────────────
+// Sends form data to the secure Vercel backend (/api/contact).
+// The backend holds the Telegram bot token — it is never exposed here.
+const BACKEND_URL = 'https://portfolio-backend-neon-alpha.vercel.app';
+
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('.contact-form');
+  if (!form) return;
 
   form.addEventListener('submit', async function (e) {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
-    // Get form values
-    const name = form.querySelector('input[type="text"]').value;
-    const email = form.querySelector('input[type="email"]').value;
-    const message = form.querySelector('textarea').value;
+    const name = form.querySelector('input[type="text"]').value.trim();
+    const email = form.querySelector('input[type="email"]').value.trim();
+    const message = form.querySelector('textarea').value.trim();
 
-    // Format message for Telegram
-    const formattedMessage = `
-Name: ${name}
-Email: ${email}
-Message: ${message}
-    `.trim();
-
-    // URL encode the message
-    const encodedMessage = encodeURIComponent(formattedMessage);
-
-    // Construct Telegram API URL
-    const telegramUrl = `https://api.telegram.org/bot7899217208:AAGmCrx0MXiN_oQtUzSdoRw571TV1cA2AEE/sendMessage?chat_id=700678109&text=${encodedMessage}&parse_mode=HTML`;
+    // Basic client-side guard (backend also validates)
+    if (!name || !email || !message) {
+      alert('Please fill in all fields.');
+      return;
+    }
 
     try {
-      // Send the message
-      const response = await fetch(telegramUrl);
+      const response = await fetch(`${BACKEND_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+
       const data = await response.json();
 
-      if (data.ok) {
+      if (response.ok && data.success) {
         alert('Message sent successfully!');
-        form.reset(); // Clear the form
+        form.reset();
+      } else if (response.status === 429) {
+        // Fallback for contact rate limiting
+        alert('Too many messages sent. We will reach out to you over your submitted Email.');
+        form.reset(); // Optionally clear the form as if it was sent successfully
       } else {
-        alert('Error sending message. Please try again.');
+        alert(data.error || 'Error sending message. Please try again.');
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('[contact] Error:', error);
       alert('Error sending message. Please try again.');
     }
   });
 });
 
-// If you need CORS workaround, use this alternative version with proxy
-function sendViaCorsProxy() {
-  const form = document.querySelector('.contact-form');
-
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    const name = form.querySelector('input[type="text"]').value;
-    const email = form.querySelector('input[type="email"]').value;
-    const message = form.querySelector('textarea').value;
-
-    const formattedMessage = `
-Name: ${name}
-Email: ${email}
-Message: ${message}
-    `.trim();
-
-    try {
-      const response = await fetch('YOUR_BACKEND_ENDPOINT', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          message: formattedMessage
-        })
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        alert('Message sent successfully! I will get back to you as soon as possible.');
-        form.reset();
-      } else {
-        alert('Error sending message. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Error sending message. Please try again.');
-    }
-  });
-}
+// ─── (Removed) ────────────────────────────────────────────────────────────────
+// The old CORS proxy stub has been replaced by the real Vercel backend above.
 
 
 
@@ -159,27 +122,13 @@ Message: ${message}
 
 
 
-async function getVisitorIP() {
-  try {
-    const response = await fetch('https://api.ipify.org?format=json');
-    const data = await response.json();
-    return data.ip;
-  } catch (error) {
-    return 'Unable to get IP';
-  }
-}
+// ─── (Removed) ────────────────────────────────────────────────────────────────
+// getVisitorIP() is no longer needed — the Vercel backend reads the visitor IP
+// directly from the x-forwarded-for request header, which is more accurate.
 
-// Function to get geolocation information
-async function getGeolocation(ip) {
-  try {
-    const response = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=4f0efc5c4b62480f830f8b7c17d2e309&ip=${ip}`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching geolocation:', error);
-    return null;
-  }
-}
+// ─── (Removed) ────────────────────────────────────────────────────────────────
+// getGeolocation() is no longer needed — the Vercel backend calls ipgeolocation.io
+// with a secret API key stored in Vercel Environment Variables.
 
 // Function to get basic browser information
 function getBrowserInfo() {
@@ -191,51 +140,38 @@ function getBrowserInfo() {
   };
 }
 
-// Function to send visitor notification to Telegram
+// ─── Visitor Tracking ─────────────────────────────────────────────────────────
+// Sends browser/page info to the secure Vercel backend (/api/notify).
+// The backend resolves geolocation and sends the Telegram notification.
+// No API keys are ever exposed to the browser.
 async function notifyVisitor() {
   try {
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    // this line is checking if the user is on localhost or not and skipping the notification if the user is on localhost if the function of the message to the telegram is not working/testing commit and uncomment this line to test
-    if (isLocalhost) return;
-    const visitorIP = await getVisitorIP();
-    const geolocation = await getGeolocation(visitorIP);
+    // Skip notification when testing locally
+    const isLocalhost = window.location.hostname === 'localhost'
+      || window.location.hostname === '127.0.0.1';
+    // if (isLocalhost) return;
+
     const browserInfo = getBrowserInfo();
-    const currentTime = new Date().toLocaleString();
 
-    // Prepare location information
-    const location = geolocation
-      ? `${geolocation.city}, ${geolocation.state_prov}, ${geolocation.country_name}`
-      : 'Location Unknown';
+    const response = await fetch(`${BACKEND_URL}/api/notify`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        page: window.location.href,
+        referrer: document.referrer || '',
+        screenResolution: browserInfo.screenResolution,
+        language: browserInfo.language,
+        timezone: browserInfo.timeZone,
+        userAgent: browserInfo.userAgent,
+      }),
+    });
 
-    // Format the message
-    const message = `
-🌐 New Website Visitor!
-
-📅 Time: ${currentTime}
-🔍 IP Address: ${visitorIP}
-📍 Location: ${location}
-🌍 Language: ${browserInfo.language}
-📱 Screen: ${browserInfo.screenResolution}
-⏰ Timezone: ${browserInfo.timeZone}
-🌐 Page: ${window.location.href}
-
-${geolocation ? `🚩 Country Flag: ${geolocation.country_flag}` : ''}
-🌍 ISP: ${geolocation?.isp || 'Unknown'}
-
-User Agent: ${browserInfo.userAgent}
-`.trim();
-
-    // Encode the message for URL
-    const encodedMessage = encodeURIComponent(message);
-
-    // Send to Telegram
-    const telegramUrl = `https://api.telegram.org/bot7596754424:AAEs3TWLmjCJauExOoRhfqe5FvQJauaBeFk/sendMessage?chat_id=700678109&text=${encodedMessage}&parse_mode=HTML`;
-
-    // Using fetch to send the notification
-    await fetch(telegramUrl);
-
+    if (response.status === 429) {
+      // Do nothing silently if the rate limit is hit
+      return;
+    }
   } catch (error) {
-    console.error('Error sending visitor notification:', error);
+    // Silent fail — visitor tracking should never break the page
   }
 }
 

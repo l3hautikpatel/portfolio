@@ -1,0 +1,207 @@
+/* Chatbot Widget Styles */
+
+#chat-widget-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  font-family: inherit;
+}
+
+#chat-toggle-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--primary-color, #d27530); /* Matched with roughly the github badge */
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#chat-toggle-btn:hover {
+  transform: scale(1.1);
+  background-color: #e08340;
+}
+
+#chat-window {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 350px;
+  height: 500px;
+  max-height: 70vh;
+  background-color: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform-origin: bottom right;
+}
+
+#chat-window.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+
+#chat-header {
+  padding: 15px 20px;
+  background-color: rgba(210, 117, 48, 0.9);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#chat-header h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+#close-chat-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Scrollbar for chat messages */
+#chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+#chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+#chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  white-space: pre-wrap; /* Preserves newlines natively if no markdown is installed */
+}
+
+/* Markdown elements support */
+.message p { margin: 0 0 10px 0; }
+.message p:last-child { margin-bottom: 0; }
+.message ul, .message ol { margin: 5px 0; padding-left: 20px; }
+.message pre { 
+  background-color: rgba(0,0,0,0.3); 
+  padding: 10px; 
+  border-radius: 8px; 
+  overflow-x: auto; 
+  margin: 10px 0;
+  white-space: pre;
+}
+.message code {
+  font-family: monospace;
+  background-color: rgba(0,0,0,0.2);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: #d27530;
+  color: white;
+  border-bottom-right-radius: 2px;
+}
+
+.message.bot {
+  align-self: flex-start;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #eee;
+  border-bottom-left-radius: 2px;
+}
+
+.message.system {
+  align-self: center;
+  background-color: transparent;
+  color: #aaa;
+  font-size: 12px;
+  text-align: center;
+  max-width: 90%;
+  font-style: italic;
+}
+
+.message.typing {
+  opacity: 0.7;
+}
+
+#chat-input-container {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#chat-input {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 20px;
+  outline: none;
+  font-family: inherit;
+}
+
+#chat-input:focus {
+  border-color: #d27530;
+}
+
+#chat-send-btn {
+  background-color: #d27530;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+#chat-send-btn:hover {
+  background-color: #e08340;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  #chat-window {
+    width: calc(100vw - 40px);
+    right: -10px;
+    bottom: 70px;
+  }
+}

@@ -95,9 +95,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const data = await response.json();
 
-      if (data.success) {
+      if (response.ok && data.success) {
         alert('Message sent successfully!');
         form.reset();
+      } else if (response.status === 429) {
+        // Fallback for contact rate limiting
+        alert('Too many messages sent. We will reach out to you over your submitted Email.');
+        form.reset(); // Optionally clear the form as if it was sent successfully
       } else {
         alert(data.error || 'Error sending message. Please try again.');
       }
@@ -149,7 +153,7 @@ async function notifyVisitor() {
 
     const browserInfo = getBrowserInfo();
 
-    await fetch(`${BACKEND_URL}/api/notify`, {
+    const response = await fetch(`${BACKEND_URL}/api/notify`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -161,9 +165,13 @@ async function notifyVisitor() {
         userAgent: browserInfo.userAgent,
       }),
     });
+
+    if (response.status === 429) {
+      // Do nothing silently if the rate limit is hit
+      return;
+    }
   } catch (error) {
     // Silent fail — visitor tracking should never break the page
-    console.error('[notify] Error:', error);
   }
 }
 

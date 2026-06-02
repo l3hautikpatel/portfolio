@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="./style/hero4.css" />
   <link rel="stylesheet" href="./style/hero5.css" />
   <link rel="stylesheet" href="./style/chat.css" />
+  <link rel="stylesheet" href="./style/achievements.css" />
 </head>
 
 <body>
@@ -465,6 +466,55 @@
       </div>
 
       <div class="hero2right">
+        <!-- Achievements Floating Orbital Section -->
+        <div class="achievements-orbital" id="achievements">
+          <!-- Orbital rings -->
+          <div class="orbital-ring orbital-ring-1"></div>
+          <div class="orbital-ring orbital-ring-2"></div>
+          <div class="orbital-ring orbital-ring-3"></div>
+
+          <!-- Center trophy -->
+          <div class="orbital-center">
+            <div class="orbital-trophy">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                <path d="M4 22h16"/>
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+              </svg>
+            </div>
+            <span class="orbital-label">Achievements</span>
+          </div>
+
+          <!-- Floating achievement badges -->
+          <div class="floating-badge badge-1">
+            <span class="badge-emoji">🏆</span>
+            <span class="badge-text">Q2 Performance Award</span>
+          </div>
+
+          <div class="floating-badge badge-2">
+            <span class="badge-emoji">🥇</span>
+            <span class="badge-text">MAD Award Winner</span>
+          </div>
+
+          <div class="floating-badge badge-3">
+            <span class="badge-emoji">⭐</span>
+            <span class="badge-text">Top Performing Co-op</span>
+          </div>
+
+          <div class="floating-badge badge-4">
+            <span class="badge-emoji">🎓</span>
+            <span class="badge-text">Top 15% Students — UWindsor</span>
+          </div>
+
+          <div class="floating-badge badge-5">
+            <span class="badge-emoji">🔑</span>
+            <span class="badge-text">Golden Key Honour Society</span>
+          </div>
+        </div>
+
         <a href="http://github.com/l3hautikpatel" target="_blank" rel="noopener noreferrer">
           <div class="github">
             <img
@@ -859,7 +909,8 @@
       <footer class="footer">
         <p>© 2025 Bhautik Patel. Built with passion and code.</p>
       </footer>
-      </ </div>
+    </div> <!-- end .hero5 -->
+  </div> <!-- end .main -->
 
       <!-- Fullscreen Preview Modal -->
       <div class="fullscreen-preview">
@@ -893,6 +944,7 @@
       <script src="./scripts/hero5.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
       <script src="./scripts/chat.js"></script>
+      <script src="./scripts/achievements.js"></script>
       
       <!-- Chatbot UI Widget -->
       <div id="chat-widget-container">

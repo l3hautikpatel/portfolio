@@ -1,4 +1,4 @@
-.colorPrimery{
+.colorPrimery {
   color: #d27530;
 }
 
@@ -35,18 +35,18 @@
   z-index: 5;
 }
 
-.hero1-left .name{
+.hero1-left .name {
   font: 700;
   font-size: 50px;
 }
 
-.hero1-left .ptext{
+.hero1-left .ptext {
   font-size: large;
   padding-top: 2vh;
   z-index: 5;
 }
 
-.workLine{
+.workLine {
   position: relative;
   background-color: aquamarine;
 }
@@ -122,6 +122,8 @@
 }
 
 .hero1-right img.facecut {
+  /* make the image to rotate to 180 degrees on X axis */
+  transform: rotateY(180deg);
   position: relative;
   height: 60%;
   /* adjust the height to your liking */
@@ -136,7 +138,7 @@
   /* add a subtle shadow to the image */
 }
 
-.hero1 .scroll-Text{
+.hero1 .scroll-Text {
   position: absolute;
   bottom: 7%;
   right: 30%;
@@ -201,7 +203,7 @@
     font-size: large;
     /* reduce the font size */
   }
-  
+
   .hero1 .status {
     position: relative;
     bottom: auto;
@@ -246,7 +248,8 @@
 
   .hero1-left {
     padding: 20px 5%;
-    background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
     border-radius: 10px;
     margin: 0 10px;
     width: calc(100% - 20px);
@@ -291,15 +294,16 @@
     border-radius: 15px;
     color: #fff;
   }
-  
+
   .hero1 .status {
-    height: 5vh;
-    overflow: hidden;
+    height: auto;
+    overflow: visible;
     margin-top: 15px;
   }
-  
+
   .scroller-in h4 {
-    font-size: 140px;
+    font-size: 80px;
+    line-height: 1;
   }
 }
 
@@ -347,7 +351,7 @@
   -webkit-text-stroke: 1px #fff;
   color: #000;
   transition: all linear .5s;
-  font-family:'Trebuchet MS', sans-serif;
+  font-family: 'Trebuchet MS', sans-serif;
   font-weight: 900;
   margin-right: 17px;
 }
@@ -359,16 +363,16 @@
 
 @keyframes scroll {
   from {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 
   to {
-      transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
 
-.hero1 .status{
+.hero1 .status {
   position: absolute;
   bottom: 40%;
   z-index: 2;
@@ -377,7 +381,8 @@
 }
 
 
-.ptext span , .ptext i{
+.ptext span,
+.ptext i {
   border-radius: 10px;
   padding: 0px 4px;
   background-color: #d276307c;

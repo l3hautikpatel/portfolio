@@ -7,6 +7,12 @@ burger.addEventListener('click', () => {
   backdrop.classList.toggle('display');
   burger.classList.toggle('toggle');
   document.body.classList.toggle('fixed-position');
+  
+  // Hide chat widget when menu is open
+  const chatWidget = document.getElementById('chat-widget-container');
+  if (chatWidget) {
+    chatWidget.style.display = navLinks.classList.contains('nav-active') ? 'none' : 'block';
+  }
 });
 
 backdrop.addEventListener('click', () => {
@@ -14,6 +20,9 @@ backdrop.addEventListener('click', () => {
   backdrop.classList.remove('display');
   burger.classList.remove('toggle');
   document.body.classList.remove('fixed-position');
+  
+  const chatWidget = document.getElementById('chat-widget-container');
+  if (chatWidget) chatWidget.style.display = 'block';
 });
 
 navLinks.addEventListener('click', (e) => {
@@ -22,6 +31,9 @@ navLinks.addEventListener('click', (e) => {
     backdrop.classList.remove('display');
     burger.classList.remove('toggle');
     document.body.classList.remove('fixed-position');
+    
+    const chatWidget = document.getElementById('chat-widget-container');
+    if (chatWidget) chatWidget.style.display = 'block';
   }
 });
 
